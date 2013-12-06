@@ -1,0 +1,10 @@
+Task is the following:
+
+1) Reopen the Array class;
+2) Rewrite the inject method.
+
+
+The method will have to be renamed as RSPEC uses inject internally to perform le magic.
+
+Inject (alias reduce) belongs to the enumerable mixin and enables the user to perform otherwise verbose operations in a few lines of code.
+
