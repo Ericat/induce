@@ -1,0 +1,12 @@
+takeaway
+========
+
+Takeaway restaurant
+
+To dos:
+
+1) Add integration test;
+2) Fix customer class;
+3) Possibly reformat including order variables in the Rspec setup;
+4) Find a way to test the menu method;
+5) Add Time.now
