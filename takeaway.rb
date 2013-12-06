@@ -1,4 +1,5 @@
 require 'rest-client'
+require_relative 'customer'
 
 class Takeaway
 
@@ -28,12 +29,13 @@ class Takeaway
   end
 
   def send_email
+    time = Time.at(Time.now + (60 * 60)).strftime("%H:%M")
      RestClient.post "https://api:key-0twodrlfbocpmtukjqp7tmsbotln4xg5"\
     "@api.mailgun.net/v2/sandbox3443.mailgun.org/messages",
         :from => "Excited User <erica.salvaneschi@hotmail.com>",
         :to => "erica.salvaneschi@hotmail.com",
         :subject => "Your order is on its way!",
-        :text => "Testing some Mailgun awesomness!"
+        :text => "Hello #{customer.name}, your pizza will arrive at #{time}"
   end
  
 end

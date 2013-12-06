@@ -1,11 +1,11 @@
-# require_relative 'takeaway'
+require_relative 'takeaway'
 
-# class Customer
+class Customer
 
-#   attr_accessor :name
+  attr_accessor :name
 
-#   def order_food(takeaway)
-#     takeaway.place_order
-#   end
+  # def order_food(takeaway)
+  #   takeaway.place_order
+  # end
 
-# end
+end
