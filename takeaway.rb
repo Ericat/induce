@@ -1,5 +1,4 @@
-# require 'bundler/setup'
-# require 'twilio-ruby'
+require 'rest-client'
 
 class Takeaway
 
@@ -10,10 +9,16 @@ class Takeaway
               }
   end
 
+  def menu
+    @dishes.each do |key, value|
+      puts "#{key}: #{value}£ ".rjust(10, ' ')
+    end
+  end
+
   def place_order(order, price)
     raise "Incorrect amount!" unless correct_amount?(order, price)
-    # correct_amount?(order, price) ? send_text : raise "Incorrect amount!"
     return @total
+    send_email
   end
 
   def correct_amount?(order, price)
@@ -22,8 +27,15 @@ class Takeaway
    @total == price
   end
 
-  def send_text
+  def send_email
+     RestClient.post "https://api:key-0twodrlfbocpmtukjqp7tmsbotln4xg5"\
+    "@api.mailgun.net/v2/sandbox3443.mailgun.org/messages",
+        :from => "Excited User <erica.salvaneschi@hotmail.com>",
+        :to => "erica.salvaneschi@hotmail.com",
+        :subject => "Your order is on its way!",
+        :text => "Testing some Mailgun awesomness!"
   end
-
-
+ 
 end
+
+

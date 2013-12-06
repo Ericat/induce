@@ -4,7 +4,7 @@
 
 #   attr_accessor :name
 
-#   def order(takeaway)
+#   def order_food(takeaway)
 #     takeaway.place_order
 #   end
 
