@@ -4,8 +4,12 @@ class Customer
 
   attr_accessor :name
 
-  # def order_food(takeaway)
-  #   takeaway.place_order
-  # end
+  def initialize(name)
+    @name = name
+  end
+
+  def order_food(takeaway, order, price)
+    takeaway.place_order(order, price)
+  end
 
 end

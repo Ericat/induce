@@ -16,10 +16,10 @@ class Takeaway
     end
   end
 
-  def place_order(order, price)
+  def place_order(order, price, customer)
     raise "Incorrect amount!" unless correct_amount?(order, price)
-    return @total
-    send_email
+    send_email(customer)
+    @total
   end
 
   def correct_amount?(order, price)
@@ -28,7 +28,7 @@ class Takeaway
    @total == price
   end
 
-  def send_email
+  def send_email(customer)
     time = Time.at(Time.now + (60 * 60)).strftime("%H:%M")
      RestClient.post "https://api:key-0twodrlfbocpmtukjqp7tmsbotln4xg5"\
     "@api.mailgun.net/v2/sandbox3443.mailgun.org/messages",
