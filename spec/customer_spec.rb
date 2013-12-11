@@ -9,6 +9,7 @@ describe Customer do
     expect(customer.name).to eq("Erica")
   end
 
+  # Nice test
   it "should be able to place the order" do
     order = {:pizza => 2, :ice_cream => 1}
     price = 18.0
