@@ -1,7 +1,9 @@
-class Array
+jclass Array
 
   def induce(head=self.first)
     result = head
+    # This should only happen if the first argument is not given
+    # If it is, we need to iterate over all elements
     tail = self[1..-1]
     tail.each do |element|
       #I update the result by passing it as
