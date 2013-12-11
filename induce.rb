@@ -1,13 +1,33 @@
+# class Array
+
+#   def induce(head=self.first)
+#     result = head
+#     tail = self[1..-1]
+#     tail.each do |element|
+#       #I update the result by passing it as
+#       #the new value in the block, as inject
+#       #requires:
+#       result = yield(result, element)
+#     end
+#     result
+#   end
+# end
+
 class Array
 
-  def induce(head=self.first)
-    result = head
-    tail = self[1..-1]
-    tail.each do |element|
-      #I update the result by passing it as
-      #the new value in the block, as inject
-      #requires:
-      result = yield(result, element)
+  def induce(start=nil)
+    if start.nil?
+      head = self.first
+      result = head
+      tail = self[1..-1]
+      tail.each do |element|
+        result = yield(result, element)
+      end
+    else
+      result = start
+      self.each do |element|
+        result = yield(result, element)
+      end
     end
     result
   end
