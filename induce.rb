@@ -1,3 +1,4 @@
+
 # class Array
 
 #   def induce(head=self.first)
